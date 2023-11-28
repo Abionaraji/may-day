@@ -43,7 +43,7 @@ pipeline{
         }
         stage('Sonar Scanner'){
             steps{
-                withSonarQubeEnv(credentialsId: 'sonar-jenkins', installationName: 'SonarQube') {
+                withSonarQubeEnv(credentialsId: 'jenkins-sonar', installationName: 'SonarQube') {
                      sh """
                 mvn sonar:sonar \
                 -Dsonar.projectKey=may-day \
