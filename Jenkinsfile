@@ -41,18 +41,6 @@ pipeline{
                 sh 'mvn verify -DiskipUnitTests'
             }
         }
-        stage('Sonar Scanner'){
-            steps{
-                withSonarQubeEnv(credentialsId: 'jenkins-sonar', installationName: 'SonarQube') {
-                     sh "sonar.projectKey=new-project/
-                     sonar.projectName=ci-jenkins
-                     sonar.projectVersion=main
-                     sonar.sources=Vendor2/Project/src/
-                     sonar.java.binaries=Vendor2/Project/src/
-                     sonar.java.source=1.8"
-                }
-            }
-        }
     }
     post {
         always{
