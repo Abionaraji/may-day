@@ -44,12 +44,12 @@ pipeline{
         stage('Sonar Scanner'){
             steps{
                 withSonarQubeEnv(credentialsId: 'jenkins-sonar', installationName: 'SonarQube') {
-                     sh """
-                mvn sonar:sonar \
-                -Dsonar.projectKey=may-day \
-                -Dsonar.host.url=http://3.86.60.106:9000 \
-                -Dsonar.login=$sonar-jenkins
-                """
+                     sh "sonar.projectKey=my.only.project
+                     sonar.projectName=New Project
+                     sonar.projectVersion=main
+                     sonar.sources=Vendor2/Project/src/
+                     sonar.java.binaries=Vendor2/Project/src/
+                     sonar.java.source=1.8"
                 }
             }
         }
