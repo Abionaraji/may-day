@@ -180,8 +180,8 @@
             </plugin>
 		<!-- CODE COVERAGE -->
 	            <plugin>
-                     <groupId>org.apache.maven.plugins</groupId>
-                     <artifactId>maven-war-plugin</artifactId>
+                     <groupId>org.sonarsource.scanner.maven</groupId>
+                     <artifactId>sonar-maven-plugin</artifactId>
                      <version>3.2.2</version>
                     </plugin>
  		    <plugin>
