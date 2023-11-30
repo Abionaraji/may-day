@@ -36,5 +36,12 @@ pipeline{
                 sh 'mvn verify -DiskipUnitTests'
             }
         }
+        stage('Sonar Scanner'){
+            steps{
+                withSonarQubeEnv(credentialsId: 'jenkins-sonar', installationName: 'SonarQube') {
+                    sh 'mvn sonar:sonar'
+                }
+            }
+        }
     }
 }
