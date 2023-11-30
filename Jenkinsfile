@@ -39,7 +39,10 @@ pipeline{
         stage('Sonar Scanner'){
             steps{
                 withSonarQubeEnv(credentialsId: 'jenkins-sonar', installationName: 'SonarQube') {
-                    sh 'mvn sonar:sonar'
+                    sh 'mvn  -Dsonar.analysis.mode=
+                     -Dsonar.scm.enabled=false 
+                     -Dsonar.scm-stats.enabled=false 
+                     -Dsonar.working.directory=/mypath/target/.sonar'
                 }
             }
         }
