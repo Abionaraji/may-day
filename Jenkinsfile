@@ -39,8 +39,7 @@ pipeline{
         stage('Sonar Scanner'){
             steps{
                 withSonarQubeEnv(credentialsId: 'jenkins-sonar', installationName: 'SonarQube') {
-                    sh 'cat .scannerwork/report-task.txt'
-                    sh 'cp .scannerwork/report-task.txt .scannerwork/report-task.properties'
+                    sh 'mvn clean package sonar:sonar'
                 }
             }
         }
