@@ -39,7 +39,11 @@ pipeline{
         stage('Sonar Scanner'){
             steps{
                 withSonarQubeEnv('SonarQube') {
-                    sh 'which node'
+                    sh 'sonar-scanner \
+  -Dsonar.projectKey=new-project \
+  -Dsonar.sources=. \
+  -Dsonar.host.url=http://52.90.186.136:9000 \
+  -Dsonar.login=a72f7ba9e79ffdf88ad23420793e9b669e331b9b'
                 }
             }
         }
