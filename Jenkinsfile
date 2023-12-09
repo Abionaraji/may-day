@@ -36,12 +36,5 @@ pipeline{
                 sh 'mvn verify -DiskipUnitTests'
             }
         }
-        stage('Sonar Scanner'){
-            steps{
-                withSonarQubeEnv('SonarQube') {
-                    sh 'mvn sonar:sonar'
-                }
-            }
-        }
     }
 }
